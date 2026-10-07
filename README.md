@@ -10,7 +10,7 @@ License: CC BY-NC-ND 4.0 (manuscript and cover) · MIT (harness code)
 
 Being able to stay inside each constraint separately is not the same as being able to stay inside all of them at once. This work shows that the gap is real for a recent construction of admissible sets for linear systems, gives an exact three-state counterexample, and ships an executable certificate that checks it in exact rational arithmetic.
 
-This repository holds the signed release: the manuscript, the protected PDF, the certificate with its tests, the archived source article, and a detached signature for every file.
+This repository holds the signed release: the manuscript, the protected PDF, the certificate with its tests, the archived source article, and a detached signature for every file of the release. This README is the repository's front page and is not part of the signed release.
 
 ## Scope and limits
 
@@ -63,7 +63,7 @@ The first command prints a deterministic JSON certificate with six named checks 
 
 ## Verify the release
 
-Every file carries a detached GPG signature (`*.sig`); `SHA256SUMS` and `PROBE-VI.md` also carry OpenTimestamps proofs (`*.ots`). From the repository root:
+Every file of the signed release carries a detached GPG signature (`*.sig`); this README does not, since it is not part of the release. `SHA256SUMS` and `PROBE-VI.md` also carry OpenTimestamps proofs (`*.ots`). From the repository root:
 
 ```sh
 gpg --import PETRONUS-Research-public-key.asc
