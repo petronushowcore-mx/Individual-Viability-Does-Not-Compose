@@ -1,0 +1,70 @@
+PROBE VI - PUBLICATION PACKAGE
+
+Individual Viability Does Not Compose: A Common-Control Counterexample
+Maksim Barziankou (MxBv), 2026
+DOI: https://doi.org/10.17605/OSF.IO/WFBX6
+
+Probe-VI-publication.zip contains the complete declared payload: the manuscript,
+protected PDF, cover, licences, public verification key, this instruction file,
+the five-file stdlib companion ZIP, all six harness source files, and four
+unmodified source-article/provenance files. It contains no signature or timestamp
+sidecars and no outer SHA256SUMS. The outer SHA256SUMS covers the exact ZIP bytes
+and every payload file. Keep the ZIP, its .sig, SHA256SUMS, SHA256SUMS.sig and
+SHA256SUMS.ots together. The separately supplied PDF and PDF.sig are independently
+verifiable.
+
+The companion certificate requires Python 3.10 or newer and the standard library.
+Its own README and MIT licence are enclosed in Probe-VI-harness.zip. The optional
+PDF builder is enclosed at harness/build_pdf.py in the full publication archive.
+It additionally requires pypdf, XeLaTeX/xdvipdfmx and DejaVu fonts. These runtimes
+and fonts are not enclosed or exact-version pinned; the package does not claim
+a complete environment image or byte-identical PDF reconstruction. Encryption
+parameters make a rebuilt PDF different bytes requiring its own provenance.
+
+The source article is pinned to arXiv:2607.29664v2, with its full HTML and PDF
+bodies, provenance and digest file in evidence/source. No release version or
+tag is supplied for this publication package. The source-control baseline is
+ddb6352a6c5074ca489596c7496e6793e6cb5daa. Enclosed manuscript, PDF and companion
+bytes include local changes and are identified by SHA256SUMS; they are not
+represented as the untouched contents of that baseline commit.
+
+GPG identity: PETRONUS Research <research@petronus.eu>
+Expected primary fingerprint:
+9E803F8037EE98E5846CE38B0C7F9CBB6D54185D
+
+Verify the fingerprint against an independently trusted author record before
+trusting this key. Importing a supplied key alone does not establish identity.
+
+Commands from the publication directory, with the detached sidecars present:
+
+  gpg --import PETRONUS-Research-public-key.asc
+  gpg --fingerprint 9E803F8037EE98E5846CE38B0C7F9CBB6D54185D
+  gpg --verify Probe-VI-publication.zip.sig Probe-VI-publication.zip
+  gpg --verify SHA256SUMS.sig SHA256SUMS
+  sha256sum -c SHA256SUMS
+  gpg --verify "Individual Viability Does Not Compose (2026).pdf.sig" "Individual Viability Does Not Compose (2026).pdf"
+  gpg --verify Probe-VI-harness.zip.sig Probe-VI-harness.zip
+  gpg --verify PROBE-VI.md.sig PROBE-VI.md
+
+The ZIP file set must equal the nineteen payload paths in SHA256SUMS after
+excluding the Probe-VI-publication.zip entry; an archive entry not declared
+there, a duplicate, an unsafe path or a missing path is a coverage failure.
+Extract beside SHA256SUMS and run the hash check again. The manifest does not
+hash itself or the detached signatures and timestamp receipts.
+
+OpenTimestamps receipts cover SHA256SUMS and PROBE-VI.md. A newly issued
+receipt may carry only calendar attestations. A Bitcoin timestamp is established
+only after an existing receipt is upgraded and successful verification confirms
+the Bitcoin commitment:
+
+  ots info SHA256SUMS.ots
+  ots upgrade SHA256SUMS.ots
+  ots verify SHA256SUMS.ots
+
+Cryptographic verification establishes file integrity and provenance. It does
+not replace reading the proof or running the companion certificate. A signature
+on an enclosed third-party source records the distributed bytes, not authorship
+of that source.
+
+Licences: original manuscript and cover CC BY-NC-ND 4.0; harness code MIT;
+third-party article retains its own authorship and CC BY-NC-ND 4.0 licence.
